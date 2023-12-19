@@ -1,3 +1,5 @@
+#incude <string>
+
 #include <Geode/Geode.hpp>
 #include <Geode/modify/CreatorLayer.hpp>
 
@@ -6,7 +8,7 @@ using namespace geode::prelude;
 class $modify(CreatorLayer) {
 
 	// creates a button and adds it to the scene
-	CCMenuItemSpriteExtra* makeBaseButton(std::string btnName, float x, float y, float scale, cocos2d::SEL_MenuHandler buttonEffect) {
+	CCMenuItemSpriteExtra* makeBaseButton(const std::string& btnName, float x, float y, float scale, cocos2d::SEL_MenuHandler buttonEffect) {
 		auto newSprite = CCSprite::createWithSpriteFrameName(btnName.c_str());
 		newSprite->setScale(scale);
 
@@ -16,7 +18,7 @@ class $modify(CreatorLayer) {
 	}
 
 	// creates a new large button (create, saved, etc)
-	CCMenuItemSpriteExtra* makeLargeButton(std::string btnName, float x, float y, cocos2d::SEL_MenuHandler buttonEffect) {
+	CCMenuItemSpriteExtra* makeLargeButton(const std::string& btnName, float x, float y, cocos2d::SEL_MenuHandler buttonEffect) {
 		auto fullName = ("GJ_" + btnName + "Btn_001.png").c_str();
 		return makeBaseButton(fullName, x + 12, y - 12, 0.275f, buttonEffect);
 	}
