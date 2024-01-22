@@ -6,15 +6,10 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
 project(gd-in-2019 VERSION 1.0.0)
 
-# Use GLOB_RECURSE instead of GLOB
-# to recursively add all source files 
-# under src/ 
-file(GLOB SOURCES
-	src/*.cpp
+add_library(${PROJECT_NAME} SHARED
+    src/main.cpp
+    # Add your cpp files here
 )
-
-# Set up the mod binary
-add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
 if (NOT DEFINED ENV{GEODE_SDK})
     message(FATAL_ERROR "Unable to find Geode SDK! Please define GEODE_SDK environment variable to point to Geode")
@@ -24,5 +19,4 @@ endif()
 
 add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
 
-# Set up dependencies, resources, link Geode
 setup_geode_mod(${PROJECT_NAME})

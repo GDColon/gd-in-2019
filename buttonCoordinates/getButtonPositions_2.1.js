@@ -24,7 +24,6 @@ let buttonCoords = {
 }
 
 // geode methods to run when a button is pressed
-// texture name: creatorlayer function
 let buttonFunctions = {
     create: "onMyLevels",
     saved: "onSavedLevels",
@@ -37,20 +36,6 @@ let buttonFunctions = {
     featured: "onFeaturedLevels",
     fame: "onFameLevels",
     search: "onOnlineLevels",
-    map: "onAdventureMap",
-    versus: "onMultiplayer",
-    paths: "onPaths",
-    event: "onEventLevel",
-    lists: "onTopLists"
-}
-
-// alternate between these
-let altButtons = {
-    daily: "weekly",
-    challenge: "map",
-    highscore: "versus",
-    mapPacks: "lists",
-    gauntlets: "event"
 }
 
 // spacing between each group
@@ -68,9 +53,9 @@ let groupCoords = [
     [baseX + spaceX, baseY, ["gauntlets"]],
     [baseX + (spaceX * 2), baseY, []],
 
-    [baseX, baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search", "gauntlets"], true],
-    [baseX + spaceX, baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search", "gauntlets"], true],
-    [baseX + (spaceX * 2), baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search"], true],
+    [baseX, baseY + spaceY, ["create", "saved", "highscore", "featured", "fame", "search", "gauntlets"], true],
+    [baseX + spaceX, baseY + spaceY, ["create", "saved", "highscore", "featured", "fame", "search", "gauntlets"], true],
+    [baseX + (spaceX * 2), baseY + spaceY, ["create", "saved", "highscore", "featured", "fame", "search"], true],
 
     [baseX, baseY + (spaceY * 2), ["gauntlets"]],
     [baseX + spaceX, baseY + (spaceY * 2), ["gauntlets"]],
@@ -87,7 +72,7 @@ function createButtonGroup(x, y, exclude=[], useWeekly) {
     for (const [id, pos] of Object.entries(buttonCoords)) {
         if (!exclude.includes(id)) {
             let trueID = id
-            if (useWeekly) trueID = altButtons[id] || id
+            if (useWeekly && id == "daily") trueID = "weekly"
             btns.push({id: trueID, pos: getTrueCoords([pos[0] + x, pos[1] + y])})
         }
     }
