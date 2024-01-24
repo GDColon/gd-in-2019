@@ -1,6 +1,9 @@
 {
 	"geode": "2.0.0",
-	"gd": "2.204",
+	"gd": {
+		"win": "2.204",
+		"android": "*"
+	},
 	"version": "v2.0.1",
 	"id": "colon.gd_in_2019",
 	"name": "Geometry Dash in 2019",
