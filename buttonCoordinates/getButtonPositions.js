@@ -19,7 +19,7 @@ let buttonCoords = {
     gauntlets: [middleOffset + (xSpacing * 3), ySpacing],
 
     featured: [0, ySpacing * 2],
-    fame: [xSpacing, ySpacing * 2],
+    paths: [xSpacing, ySpacing * 2],
     search: [xSpacing * 2, ySpacing * 2]
 }
 
@@ -45,10 +45,14 @@ let buttonFunctions = {
 }
 
 // alternate between these
-let altButtons = {
-    daily: "weekly",
+
+let altGroupTop = {
+    highscore: "versus"
+}
+
+let altGroupMiddle = {
     challenge: "map",
-    highscore: "versus",
+    daily: "weekly",
     mapPacks: "lists",
     gauntlets: "event"
 }
@@ -62,32 +66,32 @@ let spaceY = 204
 // serponge's meme consists of 12 "groups" of editor buttons
 // some of these groups have certain buttons removed (e.g. the top left one has no gauntlets button)
 // each entry below contains the coordinates of the create button (or where it WOULD be), and which buttons should be excluded from the group
-// alternating rows use the weekly button instead of daily, since the original meme was made before weeklies existed 
+// alternating rows use new buttons introduced in 2.11 and onwards
 let groupCoords = [
     [baseX, baseY, ["gauntlets"]],
     [baseX + spaceX, baseY, ["gauntlets"]],
     [baseX + (spaceX * 2), baseY, []],
 
-    [baseX, baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search", "gauntlets"], true],
-    [baseX + spaceX, baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search", "gauntlets"], true],
-    [baseX + (spaceX * 2), baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search"], true],
+    [baseX, baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search", "gauntlets"], altGroupMiddle],
+    [baseX + spaceX, baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search", "gauntlets"], altGroupMiddle],
+    [baseX + (spaceX * 2), baseY + spaceY, ["create", "saved", "highscore", "featured", "paths", "search"], altGroupMiddle],
 
-    [baseX, baseY + (spaceY * 2), ["gauntlets"]],
-    [baseX + spaceX, baseY + (spaceY * 2), ["gauntlets"]],
-    [baseX + (spaceX * 2), baseY + (spaceY * 2), []],
+    [baseX, baseY + (spaceY * 2), ["gauntlets"], altGroupTop],
+    [baseX + spaceX, baseY + (spaceY * 2), ["gauntlets"], altGroupTop],
+    [baseX + (spaceX * 2), baseY + (spaceY * 2), [], altGroupTop],
 
-    [baseX, baseY + (spaceY * 3), ["create", "saved", "highscore", "gauntlets"], true],
-    [baseX + spaceX, baseY + (spaceY * 3), ["create", "saved", "highscore", "gauntlets"], true],
-    [baseX + (spaceX * 2), baseY + (spaceY * 3), ["create", "saved", "highscore"], true]
+    [baseX, baseY + (spaceY * 3), ["create", "saved", "highscore", "gauntlets"], altGroupMiddle],
+    [baseX + spaceX, baseY + (spaceY * 3), ["create", "saved", "highscore", "gauntlets"], altGroupMiddle],
+    [baseX + (spaceX * 2), baseY + (spaceY * 3), ["create", "saved", "highscore"], altGroupMiddle]
 ]
 
 // converts a button group into individual buttons, and gets their true gd coordinates
-function createButtonGroup(x, y, exclude=[], useWeekly) {
+function createButtonGroup(x, y, exclude=[], altGroup) {
     let btns = []
     for (const [id, pos] of Object.entries(buttonCoords)) {
         if (!exclude.includes(id)) {
             let trueID = id
-            if (useWeekly) trueID = altButtons[id] || id
+            if (altGroup) trueID = altGroup[id] || id
             btns.push({id: trueID, pos: getTrueCoords([pos[0] + x, pos[1] + y])})
         }
     }

@@ -71,6 +71,7 @@ class $modify(CreatorLayer) {
 		yes i know it's messy but fuck you it works
 		see buttonCoordinates/getButtonPositions.js for info on how this part is made 
 		*/
+	
 		buttonList->addChild(makeLargeButton("create", 96.908f, 296.889f, menu_selector(CreatorLayer::onMyLevels)));
 		buttonList->addChild(makeLargeButton("saved", 131.285f, 296.889f, menu_selector(CreatorLayer::onSavedLevels)));
 		buttonList->addChild(makeLargeButton("highscore", 165.662f, 296.889f, menu_selector(CreatorLayer::onLeaderboards)));
@@ -111,7 +112,7 @@ class $modify(CreatorLayer) {
 		buttonList->addChild(makeLargeButton("event", 389.113f, 206.222f, menu_selector(CreatorLayer::onEventLevel)));
 		buttonList->addChild(makeLargeButton("create", 96.908f, 176.000f, menu_selector(CreatorLayer::onMyLevels)));
 		buttonList->addChild(makeLargeButton("saved", 131.285f, 176.000f, menu_selector(CreatorLayer::onSavedLevels)));
-		buttonList->addChild(makeLargeButton("highscore", 165.662f, 176.000f, menu_selector(CreatorLayer::onLeaderboards)));
+		buttonList->addChild(makeLargeButton("versus", 165.662f, 176.000f, menu_selector(CreatorLayer::onMultiplayer)));
 		buttonList->addChild(makeLargeButton("challenge", 79.719f, 145.778f, menu_selector(CreatorLayer::onChallenge)));
 		buttonList->addChild(makeLargeButton("daily", 114.096f, 145.778f, menu_selector(CreatorLayer::onDailyLevel)));
 		buttonList->addChild(makeLargeButton("mapPacks", 148.473f, 145.778f, menu_selector(CreatorLayer::onMapPacks)));
@@ -120,7 +121,7 @@ class $modify(CreatorLayer) {
 		buttonList->addChild(makeLargeButton("search", 165.662f, 115.556f, menu_selector(CreatorLayer::onOnlineLevels)));
 		buttonList->addChild(makeLargeButton("create", 200.039f, 176.000f, menu_selector(CreatorLayer::onMyLevels)));
 		buttonList->addChild(makeLargeButton("saved", 234.416f, 176.000f, menu_selector(CreatorLayer::onSavedLevels)));
-		buttonList->addChild(makeLargeButton("highscore", 268.793f, 176.000f, menu_selector(CreatorLayer::onLeaderboards)));
+		buttonList->addChild(makeLargeButton("versus", 268.793f, 176.000f, menu_selector(CreatorLayer::onMultiplayer)));
 		buttonList->addChild(makeLargeButton("challenge", 182.851f, 145.778f, menu_selector(CreatorLayer::onChallenge)));
 		buttonList->addChild(makeLargeButton("daily", 217.228f, 145.778f, menu_selector(CreatorLayer::onDailyLevel)));
 		buttonList->addChild(makeLargeButton("mapPacks", 251.605f, 145.778f, menu_selector(CreatorLayer::onMapPacks)));
@@ -129,7 +130,7 @@ class $modify(CreatorLayer) {
 		buttonList->addChild(makeLargeButton("search", 268.793f, 115.556f, menu_selector(CreatorLayer::onOnlineLevels)));
 		buttonList->addChild(makeLargeButton("create", 303.170f, 176.000f, menu_selector(CreatorLayer::onMyLevels)));
 		buttonList->addChild(makeLargeButton("saved", 337.547f, 176.000f, menu_selector(CreatorLayer::onSavedLevels)));
-		buttonList->addChild(makeLargeButton("highscore", 371.924f, 176.000f, menu_selector(CreatorLayer::onLeaderboards)));
+		buttonList->addChild(makeLargeButton("versus", 371.924f, 176.000f, menu_selector(CreatorLayer::onMultiplayer)));
 		buttonList->addChild(makeLargeButton("challenge", 285.982f, 145.778f, menu_selector(CreatorLayer::onChallenge)));
 		buttonList->addChild(makeLargeButton("daily", 320.359f, 145.778f, menu_selector(CreatorLayer::onDailyLevel)));
 		buttonList->addChild(makeLargeButton("mapPacks", 354.736f, 145.778f, menu_selector(CreatorLayer::onMapPacks)));
