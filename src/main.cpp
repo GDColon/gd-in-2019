@@ -5,13 +5,17 @@ using namespace geode::prelude;
 
 class $modify(CreatorLayer) {
 
+	float normalWidth = 569;
+	float winWidth;
+
 	// creates a button and adds it to the scene
 	CCMenuItemSpriteExtra* makeBaseButton(const std::string& btnName, float x, float y, float scale, cocos2d::SEL_MenuHandler buttonEffect) {
 		auto newSprite = CCSprite::createWithSpriteFrameName(btnName.c_str());
 		newSprite->setScale(scale);
 
 		auto createdBtn = CCMenuItemSpriteExtra::create(newSprite, this, buttonEffect);
-	    createdBtn->setPosition({x, y});
+
+	    createdBtn->setPosition({(x + (m_fields->winWidth - m_fields->normalWidth) / 2), y});
 		return createdBtn;
 	}
 
@@ -31,12 +35,16 @@ class $modify(CreatorLayer) {
 	// clones a sprite and places it in a new position
 	CCMenuItemSpriteExtra* cloneBtn(float x, float y, CCMenuItemSpriteExtra* btn, CCPoint offset) {
 		CCMenuItemSpriteExtra* clone = copyMenuItem(btn);
-		clone->setPosition({x + offset.x, y + offset.y});
+		CCPoint pos = {x + offset.x, y + offset.y};
+		pos.x = (pos.x + (m_fields->winWidth - m_fields->normalWidth)); // position correction for widescreen
+		clone->setPosition(pos);
 		return clone;
 	}
 	
     bool init() {
 		if(!CreatorLayer::init()) return false;
+
+		m_fields->winWidth = CCDirector::sharedDirector()->getWinSize().width;
 
 		auto oldMenu = this->getChildByID("creator-buttons-menu");
 		auto vaultMenu = this->getChildByID("top-right-menu");
