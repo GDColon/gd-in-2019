@@ -4,4 +4,4 @@ geometry dash mod that ports [serponge's meme from 2017](https://twitter.com/Ser
 
 now updated for 2.2! (does not show the quest ! alert though)
 
-see /buttonCoordinates for the code that generates the position of each button
+see /buttonCoordinates for the js code that generates the position of each button

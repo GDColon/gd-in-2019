@@ -5,8 +5,10 @@ using namespace geode::prelude;
 
 class $modify(CreatorLayer) {
 
-	float normalWidth = 569;
-	float winWidth;
+	struct Fields {
+		float normalWidth = 569;
+		float winWidth;
+    };
 
 	// creates a button and adds it to the scene
 	CCMenuItemSpriteExtra* makeBaseButton(const std::string& btnName, float x, float y, float scale, cocos2d::SEL_MenuHandler buttonEffect) {
