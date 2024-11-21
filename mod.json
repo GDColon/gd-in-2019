@@ -9,6 +9,7 @@
 	"name": "Geometry Dash in 2019",
 	"developer": "Colon",
 	"description": "this will be geometry dash in 2019",
+	"tags": ["joke"],
 	"resources": {
 		"sprites": [
 			"resources/reference.png"
