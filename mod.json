@@ -3,6 +3,7 @@
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074"
+		"mac": "2.2074"
 	}, 
 	"version": "v2.0.5",
 	"id": "colon.gd_in_2019",
