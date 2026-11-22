@@ -23,7 +23,7 @@ class $modify(CreatorLayer) {
 
 	// creates a new large button (create, saved, etc)
 	CCMenuItemSpriteExtra* makeLargeButton(const std::string& btnName, float x, float y, cocos2d::SEL_MenuHandler buttonEffect) {
-		auto fullName = ("GJ_" + btnName + "Btn_001.png").c_str();
+    	std::string fullName = fmt::format("GJ_{}Btn_001.png", btnName);
 		return makeBaseButton(fullName, x + 12, y - 12, 0.275f, buttonEffect);
 	}
 
@@ -44,7 +44,7 @@ class $modify(CreatorLayer) {
 	}
 	
     bool init() {
-		if(!CreatorLayer::init()) return false;
+		if (!CreatorLayer::init()) return false;
 
 		m_fields->winWidth = CCDirector::sharedDirector()->getWinSize().width;
 

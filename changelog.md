@@ -1,3 +1,6 @@
+# 2.0.7
+- 2.209 support
+
 # 2.0.3
 - improved support for non-16:9 aspect ratios
 
